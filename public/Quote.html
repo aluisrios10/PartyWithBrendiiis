@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Party with Brendiiis</title>
+        <link rel="stylesheet" href="styles.css">
+        <!-- Add Font Awesome CDN -->
+        <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    </head>
+    
+<body>
+    <header>
+        <img src="Icon/partywithbrendiiisIcon.jpg" alt="Party with Brendiiis Logo" class="header-logo">
+        <nav>
+            <ul>
+                <li><a href="index.html">About Us</a></li>
+                <li><a href="gallery.html">Pricing</a></li>
+                <li><a href="Quote.html">Get a Quote</a></li>
+                <li><a href="Appointment.html">Schedule Appointment</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="quote">
+        <h2>Get a Quote</h2>
+        <h3>Proudly Serving the Orange County, LA, and IE Area📍<br> 
+
+            For more information, including pricing, please see our contact info below. <br> <br>
+            
+            **Please note that we respond to ALL inquiries in less than 24 hours.  
+            If you do not receive an email within that time frame please 
+            check your spam folder** <br><br>
+
+            Email:
+            larranaga.brenda@yahoo.com <br>
+
+            Phone:
+            (323) 949-4020
+        
+        
+        
+        </h3>
+        <form id="quote-form" enctype="multipart/form-data">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required>
+    
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+    
+            <label for="phone">Phone Number:</label> <!-- New field for phone number -->
+            <input type="tel" id="phone" name="phone" placeholder="(123) 456-7890" required>
+    
+            <label for="event-type">Event Type:</label>
+            <input type="text" id="event-type" name="event-type" required>
+    
+            <label for="details">Event Details:</label>
+            <textarea id="details" name="details" required></textarea>
+    
+            <!-- New file input for uploading an inspiration image -->
+            <label for="inspiration-image">Upload Inspiration Image (Optional):</label>
+            <input type="file" id="inspiration-image" name="inspiration-image" accept="image/*">
+    
+            <button type="submit">Request Quote</button>
+        </form>
+    </section>
+    
+
+    <footer>
+        <p>&copy; 2023 Party with Brendiiis. All Rights Reserved.</p>
+    </footer>
+    
+    <script src="app.js"></script>
+</body>
+</html>

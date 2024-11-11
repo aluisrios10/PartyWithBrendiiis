@@ -1,0 +1,231 @@
+@font-face {
+    font-family: blackchanceryregular;
+    src: url(fonts/blackchancery.regular.ttf) format('truetype');
+}
+
+@font-face {
+    font-family: PhilosopherRegular;
+    src: url(fonts/Philosopher-Regular.ttf) format('truetype');
+}
+
+/* Add this to the body to ensure the footer sticks to the bottom */
+html, body {
+    height: 100%; /* Ensure full height for both html and body */
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column; /* Stack items vertically */
+}
+
+body {
+    font-family: PhilosopherRegular;
+    background-color: #f3ebee;
+    color: #333;
+    flex: 1; /* Allow the body to expand and take remaining space */
+}
+
+header {
+    background-color: #f3ebee;
+    color: white;
+    padding: 20px 20px; /* Add padding for spacing */
+    display: flex;
+    align-items: center; /* Vertically center the content */
+    justify-content: center; /* Center the logo */
+    position: relative;
+}
+
+.header-logo {
+    width: 110px; /* Set the size of the logo */
+    height: auto; /* Maintain the aspect ratio */
+    margin: 0 auto; /* Center the logo horizontally */
+    position: absolute; /* Position it absolutely inside the header */
+    left: 50%; /* Move it to the middle of the header */
+    transform: translateX(-50%); /* Adjust for exact centering */
+}
+
+nav {
+    display: flex; /* Align navigation items horizontally */
+    gap: 20px; /* Add space between navigation items */
+    margin-left: auto; /* Push navigation to the right */
+}
+
+h1 {
+    font-family: blackchanceryregular;
+    margin: 0; /* Remove the default margin */
+    font-size: 45px; /* Adjust the font size of the header text */
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+}
+
+nav ul li {
+    display: inline;
+    margin: 0 15px;
+}
+
+nav ul li a {
+    color: #d63384;
+    text-decoration: none;
+}
+
+h2 {
+    color: #eb8bab;
+}
+
+html {
+    scroll-behavior: smooth; /* Enable smooth scrolling */
+}
+
+/* Gallery container styles */
+
+#gallery h2 {
+    font-size: 40px;  /* Increase the font size */
+    text-align: center;  /* Center the text */
+    color: #d63384;  /* Optionally, change the color to match the rest of your theme */
+}
+
+.gallery-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* 4 columns per row */
+    gap: 20px; /* Spacing between the images */
+    padding: 50px;
+    justify-items: center; /* Center each image container horizontally */
+    align-items: center;   /* Center each image container vertically */
+}
+
+.image-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center the content horizontally */
+}
+
+.gallery-container .image-container {
+    background-color: #f5d0d6;  /* Light pink background */
+    padding: 10px;              /* Add padding around the image */
+    border-radius: 10px;        /* Optional: Round the corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Optional: Add a light shadow for depth */
+    width: 450px;               /* Set the container width */
+    display: flex;
+    justify-content: center;    /* Center the image horizontally */
+    align-items: center;        /* Center the image vertically */
+    text-align: center;         /* Center the image and name text */
+    transition: transform 0.3s ease; /* Smooth zoom effect */
+}
+
+.gallery-container .image-container:hover {
+    transform: scale(1.05); /* Zoom effect on hover */
+}
+
+.gallery-container img {
+    width: 100%;              /* Make the image take up the full width of the container */
+    max-height: 450px;        /* Set a max height */
+    object-fit: cover;        /* Ensure the image does not stretch */
+    border-radius: 8px;       /* Optional: Round the image corners */
+}
+
+.gallery-container p {
+    margin-top: 10px;         /* Add space between the pink container and the name */
+    font-size: 18px;          /* Set the font size for the names */
+    color: #eb8bab;           /* Light pink color */
+    font-weight: bold;        /* Optional: Make the text bold */
+    font-family: 'Philosopher'; /* Apply the Philosopher font */
+}
+
+/* Media Queries for Responsiveness */
+
+/* For screens larger than 1200px (large screens, default - 4 columns) */
+@media (max-width: 1200px) {
+    .gallery-container {
+        grid-template-columns: repeat(3, 1fr); /* 3 columns per row */
+    }
+}
+
+/* For screens between 800px and 1200px (medium screens - 2 columns) */
+@media (max-width: 800px) {
+    .gallery-container {
+        grid-template-columns: repeat(2, 1fr); /* 2 columns per row */
+    }
+}
+
+/* For screens between 500px and 800px (small screens - 1 column) */
+@media (max-width: 500px) {
+    .gallery-container {
+        grid-template-columns: 1fr; /* 1 column per row */
+    }
+}
+
+#image-slider {
+    background-color: #f5d0d6; /* Light pink background */
+    padding: 30px 0;
+    text-align: center;
+}
+
+#image-slider h2 {
+    color: #d63384;
+    font-size: 30px;
+}
+
+.slider-container {
+    overflow: hidden;
+    width: 100%;
+    max-width: 1000px; /* Adjust the max width */
+    margin: 0 auto; /* Center the slider */
+}
+
+.slider {
+    display: flex;
+    animation: scroll-left 30s linear infinite; /* Continuous left-to-right scroll */
+}
+
+.slider-img {
+    width: 150px; /* Adjust the size of the images */
+    height: auto;
+    margin: 0 10px; /* Space between the images */
+    border-radius: 10px;
+    object-fit: cover;
+}
+
+/* Define the animation for the scrolling effect */
+@keyframes scroll-left {
+    0% {
+        transform: translateX(0); /* Start at the first image */
+    }
+    100% {
+        transform: translateX(-100%); /* Move all images to the left */
+    }
+}
+
+.slider-container {
+    /* Optional: Make the container have a specific height if needed */
+    height: 200px; /* Adjust based on your image height */
+}
+
+
+/* Footer styles */
+footer {
+    background-color: #f3ebee;
+    color: #d63384;
+    text-align: center;
+    padding: 10px 0;
+    position: relative;
+    width: 100%;
+    margin-top: auto; /* Pushes the footer to the bottom of the page */
+}
+
+/* Instagram Icon styles */
+.instagram-link {
+    position: absolute;
+    bottom: 10px; /* Adjust the position from the bottom */
+    right: 20px; /* Adjust the position from the right */
+}
+
+.instagram-icon {
+    width: 40px; /* Adjust the size of the icon */
+    height: auto; /* Maintain aspect ratio */
+}
+
+.instagram-link:hover .instagram-icon {
+    opacity: 0.7; /* Add a hover effect to the icon */
+}

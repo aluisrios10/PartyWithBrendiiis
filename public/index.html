@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Party with Brendiiis</title>
+    <link rel="stylesheet" href="styles.css" />
+    <!-- Add Font Awesome CDN -->
+    <script
+      src="https://kit.fontawesome.com/a076d05399.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+
+  <body>
+    <header>
+      <img
+        src="Icon/partywithbrendiiisIcon.jpg"
+        alt="Party with Brendiiis Logo"
+        class="header-logo"
+      />
+      
+      <nav>
+        <ul>
+          <li><a href="index.html">About Us</a></li>
+          <li><a href="gallery.html">Pricing</a></li>
+          <li><a href="Quote.html">Get a Quote</a></li>
+          <li><a href="Appointment.html">Schedule Appointment</a></li>
+        </ul>
+      </nav>
+    </header>
+
+      <!-- Background with Blurred Effect and Buttons -->
+      <section class="hero-container">
+        <div class="content">
+          <h1>Party with Brendiiis</h1>
+          <div class="buttons">
+            <a href="Quote.html" class="btn">Get a Quote</a>
+            <a href="Appointment.html" class="btn">Schedule an Appointment</a>
+          </div>
+        </div>
+      </section>
+  
+    <!-- Typewriter Effect Section -->
+    <section id="welcome-message">
+        <div class="text-container">
+            <h1 class="custom-welcome">
+                 Hello There! <br />
+                <strong class="main-sentence">I'm </strong>
+                <strong class="main-name">Brenda Larranaga</strong>
+                
+            </h1>
+            <div id="typewriter-text"></div>
+        </div>
+
+        <section id="profile">
+            <img src="images/Brenda.jpg" alt="Brenda" class="brenda-image" />
+        </section>
+    </section>
+  
+    <!-- About Us Section wrapped in a container for borders -->
+    <div id="about-container">
+      <section id="about">
+        <h2>About Us</h2>
+        <p>
+          Welcome to Party with Brendiiis! We specialize in creating beautiful
+          balloon arrangements for events. Let us help make your special day
+          unforgettable. <br /><br />⋆ party decor, rentals, & more<br />⋆ non
+          refundable deposit required to book<br />⋆
+          Orange County📍
+        </p>
+      </section>
+    </div>
+
+    <!-- Logo Section -->
+    <section id="logo-section">
+      <img
+        src="Icon/partywithbrendiiisIcon.jpg"
+        alt="Party with Brendiiis Logo"
+        class="center-logo"
+      />
+    </section>
+
+    <!-- Gallery Section -->
+    <section id="gallery">
+      <h2>Our Work</h2>
+      <div class="gallery-container">
+        <div class="image-container">
+          <img src="images/BlueFogBackDrop.JPEG" alt="Balloon setup 1" />
+        </div>
+        <div class="image-container">
+          <img src="images/BrownBackDrop.JPEG" alt="Balloon setup 2" />
+        </div>
+        <div class="image-container">
+          <img src="images/RedBackDrop.JPEG" alt="Balloon setup 3" />
+        </div>
+        <div class="image-container">
+          <img src="images/GiselleBday.JPEG" alt="Balloon setup 4" />
+        </div>
+        <div class="image-container">
+          <img src="images/50Bday.jpg" alt="Balloon setup 5" />
+        </div>
+        <div class="image-container">
+          <img src="images/Bautizo.JPEG" alt="Balloon setup 6" />
+        </div>
+        <div class="image-container">
+          <img src="images/GreenBackDrop.JPEG" alt="Balloon setup 7" />
+        </div>
+        <div class="image-container">
+          <img src="images/Halloween.JPEG" alt="Balloon setup 8" />
+        </div>
+        <div class="image-container">
+          <img src="images/LizBday.JPEG" alt="Balloon setup 9" />
+        </div>
+        <div class="image-container">
+          <img src="images/MomBday.JPEG" alt="Balloon setup 10" />
+        </div>
+        <div class="image-container">
+          <img src="images/Strawberry.jpg" alt="Balloon setup 11" />
+        </div>
+        <div class="image-container">
+          <img src="images/Superhero.jpg" alt="Balloon setup 12" />
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <p>&copy; 2023 Party with Brendiiis. All Rights Reserved.</p>
+      <a
+        href="https://www.instagram.com/partywithbrendiiis/"
+        target="_blank"
+        class="instagram-link"
+      >
+        <img
+          src="Icon/InstagramIcon.png"
+          alt="Instagram"
+          class="instagram-icon"
+        />
+      </a>
+    </footer>
+
+    <!-- Correct Typewriter Effect CDN -->
+    <script src="https://unpkg.com/typewriter-effect@2.3.1/dist/core.js"></script>
+    
+    <!-- Typewriter Effect Script -->
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        console.log("Typewriter script running");
+
+        var app = document.getElementById("typewriter-text");
+        if (!app) {
+          console.log("Element not found!");
+        } else {
+          console.log("Element found! Initializing typewriter.");
+
+          var typewriter = new Typewriter(app, {
+            loop: true,
+            delay: 75,
+          });
+
+          typewriter
+            .typeString("Balloon Arrangements")
+            .pauseFor(1000)
+            .deleteAll()
+            .typeString("Event Planner")
+            .pauseFor(1000)
+            .deleteAll()
+            .typeString("Party Decorations")
+            .pauseFor(1000)
+            .deleteAll()
+            .start();
+        }
+      });
+    </script>
+
+  </body>
+</html>

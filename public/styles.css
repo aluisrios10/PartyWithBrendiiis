@@ -1,0 +1,488 @@
+@font-face {
+    font-family: blackchanceryregular;
+    src:url(fonts/blackchancery.regular.ttf);
+}
+
+@font-face {
+    font-family: PhilosopherRegular;
+    src:url(fonts/Philosopher-Regular.ttf);
+}
+
+body {
+    font-family: PhilosopherRegular;
+    margin: 0;
+    padding: 0;
+    background-color: #f3ebee;
+    color: #333;
+}
+
+header {
+    background-color: #f3ebee;
+    color: white;
+    padding: 20px 20px;  /* Add padding for spacing */
+    display: flex;
+    align-items: center;  /* Vertically center the content */
+    justify-content: center;  /* Center the logo */
+    position: relative;
+}
+
+.header-logo {
+    width: 110px;  /* Set the size of the logo */
+    height: auto;  /* Maintain the aspect ratio */
+    margin: 0 auto;  /* Center the logo horizontally */
+    position: absolute;  /* Position it absolutely inside the header */
+    left: 50%;  /* Move it to the middle of the header */
+    transform: translateX(-50%);  /* Adjust for exact centering */
+}
+
+nav {
+    display: flex;  /* Align navigation items horizontally */
+    gap: 20px;  /* Add space between navigation items */
+    margin-left: auto;  /* Push navigation to the right */
+}
+
+h1 {
+    font-family: blackchanceryregular;
+    margin: 0;  /* Remove the default margin */
+    font-size: 45px;  /* Adjust the font size of the header text */
+   
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+}
+
+nav ul li {
+    display: inline;
+    margin: 0 15px;
+}
+
+nav ul li a {
+    color: #d63384;
+    text-decoration: none;
+}
+
+
+h2 {
+    color: #eb8bab;
+}
+
+html {
+    scroll-behavior: smooth; /* Enable smooth scrolling */
+  }
+
+  /* Hero section styles */
+.hero-container {
+    background: url('images/PinkBalloonBackDrop.jpg') no-repeat center center/cover;
+    height: 50vh;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 0;  /* Remove any margin to eliminate the gap */
+    padding: 0;  /* Remove padding to ensure no extra space */
+  }
+  
+  .hero-container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.7); /* White overlay with some transparency */
+    backdrop-filter: blur(0.1px); /* Apply blur effect */
+    z-index: 1; /* Ensure it's behind the text and buttons */
+  }
+  
+  .content {
+    position: relative;
+    z-index: 2; /* Make sure it's in front of the blur */
+    text-align: center;
+    color: #d63384; /* Pink color */
+  }
+  
+  .content h1 {
+    font-size: 4rem;
+    margin-bottom: 20px;
+  }
+  
+  .buttons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+  }
+  
+  .btn {
+    text-decoration: none;
+    padding: 15px 30px;
+    background-color: #f5d0d6; /* Light pink background */
+    color: #d63384; /* Pink text */
+    border-radius: 30px;
+    font-size: 1.2rem;
+    transition: background-color 0.3s ease;
+  }
+  
+  .btn:hover {
+    background-color: #d63384; /* Pink background on hover */
+    color: #fff; /* White text on hover */
+  }
+
+/* For the Quote page */
+#quote {
+    background-color: #fff8f9; /* Light pink background for the section */
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Light shadow for depth */
+    margin: 40px auto;
+    max-width: 800px; /* Limit the width of the section */
+}
+
+#quote h2 {
+    color: #d63384; /* Light pink color for the heading */
+    text-align: center; /* Center the title */
+    font-size: 36px;
+    font-family: 'blackchanceryregular', cursive;
+    margin-bottom: 20px; /* Space below the heading */
+}
+
+#quote h3 {
+    color: #eb8bab; /* Light pink color for the heading */
+    text-align: center; /* Center the title */
+    font-size: 18px;
+    font-family: 'PhilosopherRegular';
+    margin-bottom: 20px; /* Space below the heading */
+}
+
+#quote-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px; /* Add space between the fields */
+}
+
+#quote-form label {
+    font-size: 18px;
+    font-weight: bold;
+    color: #333; /* Darker text color for labels */
+}
+
+#quote-form input, #quote-form textarea, #quote-form button {
+    padding: 12px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    font-size: 16px;
+}
+
+#quote-form input[type="text"],
+#quote-form input[type="email"],
+#quote-form input[type="tel"],
+#quote-form textarea {
+    background-color: #fff;
+}
+
+#quote-form button {
+    background-color: #eb8bab; /* Light pink background for the button */
+    color: white;
+    cursor: pointer;
+    border: none;
+    font-weight: bold;
+}
+
+#quote-form button:hover {
+    background-color: #d07b91; /* Slightly darker pink on hover */
+}
+
+#quote-form input:focus, 
+#quote-form textarea:focus, 
+#quote-form button:focus {
+    outline: none; /* Remove default focus outline */
+    box-shadow: 0 0 5px rgba(235, 139, 171, 0.7); /* Light pink glow on focus */
+}
+
+/* For the Appointment page */
+#appointment {
+    background-color: #fff8f9; /* Light pink background for the section */
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Light shadow for depth */
+    margin: 40px auto;
+    max-width: 800px; /* Limit the width of the section */
+}
+
+#appointment h2 {
+    color: #d63384; /* Light pink color for the heading */
+    text-align: center; /* Center the title */
+    font-size: 36px;
+    font-family: 'blackchanceryregular', cursive;
+    margin-bottom: 20px; /* Space below the heading */
+}
+
+#appointment h3 {
+    color: #eb8bab; /* Light pink color for the heading */
+    text-align: center; /* Center the title */
+    font-size: 18px;
+    font-family: 'PhilosopherRegular';
+    margin-bottom: 20px; /* Space below the heading */
+}
+
+#appointment-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px; /* Add space between the fields */
+}
+
+#appointment-form label {
+    font-size: 18px;
+    font-weight: bold;
+    color: #333; /* Darker text color for labels */
+}
+
+#appointment-form input, #appointment-form button {
+    padding: 12px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    font-size: 16px;
+}
+
+#appointment-form input[type="text"],
+#appointment-form input[type="email"],
+#appointment-form input[type="tel"],
+#appointment-form input[type="date"] {
+    background-color: #fff;
+}
+
+#appointment-form button {
+    background-color: #eb8bab; /* Light pink background for the button */
+    color: white;
+    cursor: pointer;
+    border: none;
+    font-weight: bold;
+}
+
+#appointment-form button:hover {
+    background-color: #d07b91; /* Slightly darker pink on hover */
+}
+
+#appointment-form input:focus, 
+#appointment-form button:focus {
+    outline: none; /* Remove default focus outline */
+    box-shadow: 0 0 5px rgba(235, 139, 171, 0.7); /* Light pink glow on focus */
+}
+
+/* For the about section page */
+
+#about-container {
+    font-size: 25px;
+    padding: 20px;                   /* Add padding for content spacing */
+    background-color: #f3ebee; /* Optional: Light background to make the border stand out */
+    margin-bottom: 40px;  /* Add space between the "About Us" and "Gallery" sections */
+}
+
+#about {
+    background-color: #f3ebee;  /* Optional: You can add a background color */
+    color: #333;
+    padding: 20px;
+    text-align: center;       /* Centers the text horizontally */
+}
+
+#about p {
+    max-width: 800px;         /* Limit the width to avoid stretching the text */
+    margin: 0 auto;           /* Centers the paragraph */
+}
+
+#logo-section {
+    display: flex;
+    justify-content: center;  /* Centers the content horizontally */
+    align-items: center;      /* Centers the content vertically */
+    padding: 40px 0;          /* Add padding for more spacing around the logo */
+    height: 300px;            /* Set a height for the section (adjust as needed) */
+}
+
+.center-logo {
+    width: 500px;             /* Make the logo larger */
+    height: auto;             /* Maintain aspect ratio */
+    margin: 0 auto;           /* Center the image */
+}
+
+section {
+    padding: 20px;
+    margin: 20px 0;
+}
+
+/* Gallery container styles */
+
+#gallery h2 {
+    font-size: 40px;  /* Increase the font size */
+    text-align: center;  /* Center the text */
+    color: #eb8bab;  /* Optionally, change the color to match the rest of your theme */
+}
+
+.gallery-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* 4 columns per row */
+    gap: 20px; /* Spacing between the images */
+    padding: 50px;
+    justify-items: center; /* Center each image container horizontally */
+    align-items: center;   /* Center each image container vertically */
+}
+
+.gallery-container .image-container {
+    background-color: #f5d0d6;  /* Light pink background */
+    padding: 10px;              /* Add padding around the image */
+    border-radius: 10px;        /* Optional: Round the corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Optional: Add a light shadow for depth */
+    width: 450px;               /* Set the container width */
+    height: 450px;              /* Set the container height */
+    display: flex;
+    justify-content: center;    /* Center the image horizontally */
+    align-items: center;        /* Center the image vertically */
+}
+
+.gallery-container img {
+    width: 100%;              /* Make the image take up the full width of the container */
+    max-height: 450px;        /* Set a max height */
+    object-fit: cover;        /* Ensure the image does not stretch */
+    border-radius: 8px;       /* Optional: Round the image corners */
+}
+
+/* Media Queries for Responsiveness */
+
+/* For screens larger than 1200px (large screens, default - 4 columns) */
+@media (max-width: 1200px) {
+    .gallery-container {
+        grid-template-columns: repeat(3, 1fr); /* 3 columns per row */
+    }
+}
+
+/* For screens between 800px and 1200px (medium screens - 2 columns) */
+@media (max-width: 800px) {
+    .gallery-container {
+        grid-template-columns: repeat(2, 1fr); /* 2 columns per row */
+    }
+}
+
+/* For screens between 500px and 800px (small screens - 1 column) */
+@media (max-width: 500px) {
+    .gallery-container {
+        grid-template-columns: 1fr; /* 1 column per row */
+    }
+}
+
+/* This CSS is for the form buttons*/ 
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+form input, form textarea, form button {
+    margin-bottom: 10px;
+    padding: 10px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+}
+
+form button {
+    background-color: #eb8bab;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+form button:hover {
+    background-color: #eb8bab;
+}
+
+/* This CSS is for the footer*/ 
+
+footer {
+    background-color: #f3ebee;
+    color: #d63384;
+    text-align: center;
+    padding: 10px 0;
+    position: relative;
+    width: 100%;
+}
+
+/* This CSS is for the Instagram Icon*/ 
+
+.instagram-link {
+    position: absolute;
+    bottom: 10px;  /* Adjust the position from the bottom */
+    right: 20px;   /* Adjust the position from the right */
+}
+
+.instagram-icon {
+    width: 40px;      /* Adjust the size of the icon */
+    height: auto;     /* Maintain aspect ratio */
+}
+
+.instagram-link:hover .instagram-icon {
+    opacity: 0.7;     /* Add a hover effect to the icon */
+}
+
+/* This CSS is for the typewriter and the image next to the typewriter*/ 
+
+#welcome-message {
+    display: flex;
+    justify-content: center; /* Center content horizontally */
+    align-items: center; /* Center content vertically */
+    padding: 20px;
+  }
+  
+  .text-container {
+    display: flex;
+    flex-direction: column; /* Stack the name and typewriter text vertically */
+    align-items: center; /* Center text horizontally */
+    margin-right: 20px; /* Small space between the text and the image */
+  }
+  
+  .custom-welcome {
+    font-family: PhilosopherRegular;
+    font-size: 35px;
+    font-weight: bold;
+    color: #000000;
+    text-align: center; /* Center text horizontally */
+    margin-bottom: 5px; /* Reduce the space between the name and typewriter */
+  }
+  
+  .main-name {
+    font-family: PhilosopherRegular;
+    color: #eb8bab;
+    font-size: 35px;
+  }
+  
+  #typewriter-text {
+    font-size: 30px;
+    font-weight: bold;
+    text-align: center;
+    margin-top: 5px; /* Adjust space between typewriter and name */
+    color: #eb8bab;
+  }
+  
+  #profile {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .brenda-image {
+    width: 450px; /* Adjust the size of the square image */
+    height: 450px; /* Same height to make it square */
+    object-fit: cover; /* Ensures the image covers the square space without distortion */
+    border-radius: 10px; /* Optional: Rounded corners */
+    margin-left: 20px; /* Small space between the text and the image */
+
+
+    background-color: #f5d0d6;  /* Light pink background */
+    padding: 10px;              /* Add padding around the image */
+    border-radius: 10px;        /* Optional: Round the corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Optional: Add a light shadow for depth */
+    width: 450px;               /* Set the container width */
+    height: 450px;              /* Set the container height */
+    display: flex;
+    justify-content: center;    /* Center the image horizontally */
+    align-items: center;        /* Center the image vertically */
+  }
+  
