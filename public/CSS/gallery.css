@@ -170,38 +170,35 @@ html {
 .slider-container {
     overflow: hidden;
     width: 100%;
-    max-width: 1000px; /* Adjust the max width */
+    max-width: 1000px; /* Keeps max width constraint */
     margin: 0 auto; /* Center the slider */
+    height: 200px; /* Adjust to match your image height */
+    position: relative;
 }
 
 .slider {
     display: flex;
-    animation: scroll-left 30s linear infinite; /* Continuous left-to-right scroll */
+    animation: scroll-left 40s linear infinite; /* Continuous left-to-right scroll, adjust speed by changing time */
+    width: max-content; /* This helps the slider to size itself based on its content */
 }
 
 .slider-img {
-    width: 150px; /* Adjust the size of the images */
+    width: 150px; /* Image size */
     height: auto;
-    margin: 0 10px; /* Space between the images */
+    margin: 0 10px; /* Space between images */
     border-radius: 10px;
     object-fit: cover;
 }
 
-/* Define the animation for the scrolling effect */
+/* Smooth scrolling keyframes for infinite scroll */
 @keyframes scroll-left {
     0% {
         transform: translateX(0); /* Start at the first image */
     }
     100% {
-        transform: translateX(-100%); /* Move all images to the left */
+        transform: translateX(-50%); /* Adjust this based on how many images you have */
     }
 }
-
-.slider-container {
-    /* Optional: Make the container have a specific height if needed */
-    height: 200px; /* Adjust based on your image height */
-}
-
 
 /* Footer styles */
 footer {
