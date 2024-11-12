@@ -8,15 +8,16 @@
     src: url(fonts/Philosopher-Regular.ttf) format('truetype');
 }
 
-/* Add this to the body to ensure the footer sticks to the bottom */
+/* Ensure full height for both html and body */
 html, body {
-    height: 100%; /* Ensure full height for both html and body */
+    height: 100%;  /* Ensure full height for both html and body */
     margin: 0;
     padding: 0;
     display: flex;
     flex-direction: column; /* Stack items vertically */
 }
 
+/* Body styles */
 body {
     font-family: PhilosopherRegular;
     background-color: #f3ebee;
@@ -24,41 +25,37 @@ body {
     flex: 1; /* Allow the body to expand and take remaining space */
 }
 
-
+/* Header Styles */
 header {
     background-color: #f3ebee;
     color: white;
-    padding: 20px 20px; /* Add padding for spacing */
+    padding: 10px;  /* Add padding for spacing */
     display: flex;
-    align-items: center; /* Vertically center the content */
-    justify-content: center; /* Center the logo */
+    flex-direction: column; /* Stack logo and nav vertically */
+    align-items: center;  /* Center the content horizontally */
     position: relative;
 }
 
 .header-logo {
-    width: 110px; /* Set the size of the logo */
-    height: auto; /* Maintain the aspect ratio */
-    margin: 0 auto; /* Center the logo horizontally */
-    position: absolute; /* Position it absolutely inside the header */
-    left: 50%; /* Move it to the middle of the header */
-    transform: translateX(-50%); /* Adjust for exact centering */
+    width: 110px;  /* Set the size of the logo */
+    height: auto;  /* Maintain the aspect ratio */
+    margin: 0;
+    position: relative;
+    top: 0;
 }
 
 nav {
-    display: flex; /* Align navigation items horizontally */
-    gap: 20px; /* Add space between navigation items */
-    margin-left: auto; /* Push navigation to the right */
-}
-
-h1 {
-    font-family: blackchanceryregular;
-    margin: 0; /* Remove the default margin */
-    font-size: 45px; /* Adjust the font size of the header text */
+    display: flex;
+    gap: 20px;
+    margin-top: 20px; /* Add space between the logo and navigation */
+    justify-content: center;  /* Center navigation items horizontally */
 }
 
 nav ul {
     list-style: none;
     padding: 0;
+    display: flex;
+    margin: 0;
 }
 
 nav ul li {
@@ -69,6 +66,7 @@ nav ul li {
 nav ul li a {
     color: #d63384;
     text-decoration: none;
+    font-size: 16px;  /* Adjust font size for better readability */
 }
 
 h2 {
@@ -79,9 +77,141 @@ html {
     scroll-behavior: smooth; /* Enable smooth scrolling */
 }
 
+/* Media Queries for Responsiveness */
+
+/* For screens between 800px and 1200px */
+@media (max-width: 1200px) {
+    .header-logo {
+        width: 90px;  /* Reduce the logo size on medium screens */
+    }
+
+    nav {
+        gap: 15px;  /* Reduce the gap between navigation items */
+    }
+
+    nav ul li a {
+        font-size: 17px;  /* Adjust font size for better readability on medium screens */
+    }
+}
+
+/* For screens between 500px and 800px */
+@media (max-width: 800px) {
+    .header-logo {
+        width: 80px;  /* Resize the logo for smaller screens */
+    }
+
+    nav {
+        gap: 10px;  /* Reduce space between navigation items */
+    }
+
+    nav ul li a {
+        font-size: 15px;  /* Adjust font size for small screens */
+    }
+}
+
+/* For screens smaller than 500px */
+@media (max-width: 500px) {
+    .header-logo {
+        width: 70px;  /* Resize the logo for very small screens */
+    }
+
+    nav {
+        flex-direction: column;  /* Stack the navigation items vertically */
+        gap: 5px;  /* Smaller gap between items */
+        align-items: center;  /* Center the nav items */
+        justify-content: center;  /* Center the nav items */
+    }
+
+    nav ul li a {
+        font-size: 13px;  /* Further adjust font size for very small screens */
+    }
+}
+
 /* Target only the banner.html gallery */
 .banner-gallery .gallery-container {
+    display: grid;
     grid-template-columns: repeat(4, 1fr); /* 4 images per row */
+    gap: 20px;  /* Space between images */
+}
+
+/* For screens between 800px and 1200px (medium screens) */
+@media (max-width: 1200px) {
+    .banner-gallery .gallery-container {
+        grid-template-columns: repeat(3, 1fr); /* 3 images per row */
+    }
+}
+
+/* For screens between 500px and 800px (small screens) */
+@media (max-width: 800px) {
+    .banner-gallery .gallery-container {
+        grid-template-columns: repeat(2, 1fr); /* 2 images per row */
+    }
+}
+
+/* For very small screens (below 500px) */
+@media (max-width: 500px) {
+    .banner-gallery .gallery-container {
+        grid-template-columns: 1fr; /* 1 image per row */
+    }
+}
+
+
+
+
+
+
+
+
+
+
+/* Target only the banner.html gallery */
+.banner-gallery .gallery-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* 4 images per row */
+    gap: 20px;  /* Space between images */
+}
+
+/* For screens between 800px and 1200px (medium screens) */
+@media (max-width: 1200px) {
+    .banner-gallery .gallery-container {
+        grid-template-columns: repeat(3, 1fr); /* 3 images per row */
+    }
+}
+
+/* For screens between 500px and 800px (small screens) */
+@media (max-width: 800px) {
+    .banner-gallery .gallery-container {
+        grid-template-columns: repeat(2, 1fr); /* 2 images per row */
+    }
+
+    /* Make images smaller on smaller screens */
+    .banner-gallery .image-container {
+        max-width: 100%;  /* Ensure image container uses available space */
+    }
+
+    .banner-gallery .image-container img {
+        width: 100%; /* Resize images to fill the container */
+        height: auto; /* Maintain aspect ratio */
+        max-height: 350px; /* Reduce max height for smaller screens */
+    }
+}
+
+/* For very small screens (below 500px) */
+@media (max-width: 500px) {
+    .banner-gallery .gallery-container {
+        grid-template-columns: 1fr; /* 1 image per row */
+    }
+
+    /* Make images smaller on very small screens */
+    .banner-gallery .image-container {
+        max-width: 100%;  /* Ensure image container uses available space */
+    }
+
+    .banner-gallery .image-container img {
+        width: 100%; /* Resize images to fill the container */
+        height: auto; /* Maintain aspect ratio */
+        max-height: 250px; /* Further reduce max height */
+    }
 }
 
 /* Center the image in shimmer-gallery */
@@ -127,7 +257,6 @@ html {
 }
 
 /* Target only the arch.html gallery */
-
 #gallery h2 {
     font-size: 40px;  /* Increase the font size */
     text-align: center;  /* Center the text */
@@ -244,6 +373,19 @@ html {
     .gallery-container {
         grid-template-columns: repeat(2, 1fr); /* 2 columns per row */
     }
+
+    /* Ensure image container maintains its size */
+    .gallery-container .image-container {
+        width: 100%; /* Make container use full available space */
+        
+    }
+
+    /* Resize images to fit container */
+    .gallery-container .image-container img {
+        width: 100%;  /* Resize images */
+        max-height: 300px; /* Adjust max height for smaller screens */
+        object-fit: contain;  /* Ensure images don't stretch */
+    }
 }
 
 /* For screens between 500px and 800px (small screens - 1 column) */
@@ -251,9 +393,32 @@ html {
     .gallery-container {
         grid-template-columns: 1fr; /* 1 column per row */
     }
+
+    /* Ensure image container maintains its size */
+    .gallery-container .image-container {
+        width: 100%;  /* Make container use full available space */
+        
+    }
+
+    /* Resize images to fit container */
+    .gallery-container .image-container img {
+        width: 100%;  /* Resize images */
+        max-height: 450px; /* Further reduce max height */
+        object-fit: contain;  /* Ensure images don't stretch */
+    }
 }
 
-/* Footer styles */
+
+
+
+
+
+
+
+
+
+/* This CSS is for the footer*/ 
+
 footer {
     background-color: #f3ebee;
     color: #d63384;
@@ -261,21 +426,37 @@ footer {
     padding: 10px 0;
     position: relative;
     width: 100%;
-    margin-top: auto; /* Pushes the footer to the bottom of the page */
 }
 
-/* Instagram Icon styles */
+/* This CSS is for the Instagram Icon*/ 
+
 .instagram-link {
     position: absolute;
-    bottom: 10px; /* Adjust the position from the bottom */
-    right: 20px; /* Adjust the position from the right */
+    bottom: 10px;  /* Adjust the position from the bottom */
+    right: 20px;   /* Adjust the position from the right */
 }
 
 .instagram-icon {
-    width: 40px; /* Adjust the size of the icon */
-    height: auto; /* Maintain aspect ratio */
+    width: 40px;      /* Adjust the size of the icon */
+    height: auto;     /* Maintain aspect ratio */
 }
 
 .instagram-link:hover .instagram-icon {
-    opacity: 0.7; /* Add a hover effect to the icon */
+    opacity: 0.7;     /* Add a hover effect to the icon */
+}
+
+/* Footer responsive styles */
+@media (max-width: 500px) {
+    footer {
+        padding: 10px 0; /* Reduce padding for smaller screens */
+    }
+    
+    .instagram-link {
+        bottom: 5px;  /* Adjust for smaller screens */
+        right: 10px;
+    }
+
+    .instagram-icon {
+        width: 30px; /* Reduce icon size on small screens */
+    }
 }
