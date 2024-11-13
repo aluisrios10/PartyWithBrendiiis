@@ -155,15 +155,6 @@ html {
     }
 }
 
-
-
-
-
-
-
-
-
-
 /* Target only the banner.html gallery */
 .banner-gallery .gallery-container {
     display: grid;
@@ -407,15 +398,6 @@ html {
         object-fit: contain;  /* Ensure images don't stretch */
     }
 }
-
-
-
-
-
-
-
-
-
 
 /* This CSS is for the footer*/ 
 
