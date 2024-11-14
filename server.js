@@ -7,7 +7,7 @@ const Quote = require('./models/Quote'); // Quote model
 const Appointment = require('./models/Appointment'); // Appointment model
 
 const app = express();
-const PORT = 3000;
+const PORT = process.env.PORT || 3000;  // Use environment variable PORT for cloud services, fallback to 3000 locally
 
 // Set up multer storage configuration
 const storage = multer.diskStorage({
@@ -32,8 +32,8 @@ app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, 'public', 'index.html'));
 });
 
-// Connect to MongoDB
-mongoose.connect('mongodb://localhost:27017/brendaLarranaga')
+// Connect to MongoDB (use environment variable for deployment)
+mongoose.connect(process.env.MONGO_URI || 'mongodb://localhost:27017/brendaLarranaga')  // Use environment variable for MongoDB URI
   .then(() => {
     console.log('Connected to MongoDB');
   })
@@ -41,12 +41,11 @@ mongoose.connect('mongodb://localhost:27017/brendaLarranaga')
     console.error('Error connecting to MongoDB:', err);
   });
 
-
 // Quote route (with file upload handling)
 app.post('/quote', upload.single('inspiration-image'), async (req, res) => {
   // Destructure form data
   const { name, email, phone, eventType, details } = req.body;
-  
+
   // Check for uploaded file (inspiration image)
   const inspirationImage = req.file ? req.file.path : null;  // If there's a file, use the file path
 
@@ -79,8 +78,7 @@ app.post('/quote', upload.single('inspiration-image'), async (req, res) => {
   }
 });
 
- // Create new appointment document
-
+// Create new appointment document
 app.post('/appointment', async (req, res) => {
   const { name, email, phone, date, time } = req.body;  // Destructure the data from the request body
 
@@ -107,7 +105,7 @@ app.post('/appointment', async (req, res) => {
   }
 });
 
+// Start the server
 app.listen(PORT, () => {
   console.log(`Server running on http://localhost:${PORT}`);
 });
-
