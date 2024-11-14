@@ -1,3 +1,6 @@
+// Load environment variables from .env file
+require('dotenv').config();
+
 const express = require('express');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
@@ -8,6 +11,9 @@ const Appointment = require('./models/Appointment'); // Appointment model
 
 const app = express();
 const PORT = process.env.PORT || 3000;  // Use environment variable PORT for cloud services, fallback to 3000 locally
+
+// Check if the Mongo URI is loaded correctly
+console.log('Mongo URI:', process.env.MONGO_URI); // Ensure this is being loaded from your .env file
 
 // Set up multer storage configuration
 const storage = multer.diskStorage({
