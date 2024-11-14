@@ -1,15 +1,21 @@
+// Load environment variables from .env file
+require('dotenv').config();
+
+// Required modules
 const express = require('express');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 const path = require('path');
 const multer = require('multer');
-const Quote = require('./models/Quote'); // Quote model
-const Appointment = require('./models/Appointment'); // Appointment model
+
+// Models for Quote and Appointment
+const Quote = require('./models/Quote');
+const Appointment = require('./models/Appointment');
 
 const app = express();
-const PORT = process.env.PORT || 3000;  // Use environment variable PORT for cloud services, fallback to 3000 locally
+const PORT = process.env.PORT || 3000;  // Use environment variable for cloud services, fallback to 3000 locally
 
-// Set up multer storage configuration
+// Set up multer storage configuration for file uploads
 const storage = multer.diskStorage({
   destination: function (req, file, cb) {
     cb(null, 'uploads/');  // Save files to the 'uploads' folder
@@ -23,17 +29,20 @@ const storage = multer.diskStorage({
 const upload = multer({ storage: storage });
 
 // Middleware
-app.use(express.static('public'));
+app.use(express.static('public'));  // Serve static files from the 'public' folder
 app.use(bodyParser.urlencoded({ extended: true }));
-app.use(bodyParser.json()); // Add this for JSON support
+app.use(bodyParser.json());  // Add this for JSON support
 
-// Serve HTML form
+// Serve the HTML form for the front-end
 app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, 'public', 'index.html'));
 });
 
-// Connect to MongoDB (use environment variable for deployment)
-mongoose.connect(process.env.MONGO_URI || 'mongodb://localhost:27017/brendaLarranaga')  // Use environment variable for MongoDB URI
+// Connect to MongoDB using environment variable for secure connection string
+mongoose.connect(process.env.MONGO_URI || 'mongodb://localhost:27017/brendaLarranaga', {
+  useNewUrlParser: true,
+  useUnifiedTopology: true
+})
   .then(() => {
     console.log('Connected to MongoDB');
   })
@@ -41,9 +50,9 @@ mongoose.connect(process.env.MONGO_URI || 'mongodb://localhost:27017/brendaLarra
     console.error('Error connecting to MongoDB:', err);
   });
 
-// Quote route (with file upload handling)
+// Quote route (handles form data and file upload)
 app.post('/quote', upload.single('inspiration-image'), async (req, res) => {
-  // Destructure form data
+  // Destructure form data from the request body
   const { name, email, phone, eventType, details } = req.body;
 
   // Check for uploaded file (inspiration image)
@@ -53,13 +62,13 @@ app.post('/quote', upload.single('inspiration-image'), async (req, res) => {
   console.log('Request Body:', req.body);  // Log the form data
   console.log('Uploaded File:', req.file);  // Log the uploaded file data
 
-  // Check if all required fields are present
+  // Validate required fields
   if (!name || !email || !phone || !eventType || !details) {
     return res.status(400).send('Missing required fields');
   }
 
   try {
-    // Create new quote document
+    // Create a new quote document and save to MongoDB
     const quote = new Quote({
       name,
       email,
@@ -69,8 +78,7 @@ app.post('/quote', upload.single('inspiration-image'), async (req, res) => {
       inspirationImage  // Store image file path in MongoDB
     });
 
-    // Save the quote to the database
-    await quote.save();
+    await quote.save();  // Save the quote to the database
     res.send('Quote request received and saved');
   } catch (err) {
     res.status(500).send('Error saving quote');
@@ -78,34 +86,34 @@ app.post('/quote', upload.single('inspiration-image'), async (req, res) => {
   }
 });
 
-// Create new appointment document
+// Appointment route (for scheduling appointments)
 app.post('/appointment', async (req, res) => {
-  const { name, email, phone, date, time } = req.body;  // Destructure the data from the request body
+  const { name, email, phone, date, time } = req.body;
 
-  // Check if all required fields are present
+  // Validate required fields
   if (!name || !email || !phone || !date || !time) {
-      return res.status(400).send('Missing required fields');
+    return res.status(400).send('Missing required fields');
   }
 
   try {
-      // Create a new appointment document including the time field
-      const appointment = new Appointment({
-          name,
-          email,
-          phone,
-          date,
-          time  // Save the time field in the database
-      });
-      
-      await appointment.save();  // Save to MongoDB
-      res.send('Appointment scheduled and saved');
+    // Create a new appointment document and save to MongoDB
+    const appointment = new Appointment({
+      name,
+      email,
+      phone,
+      date,
+      time  // Store the time field in the database
+    });
+
+    await appointment.save();  // Save the appointment to MongoDB
+    res.send('Appointment scheduled and saved');
   } catch (err) {
-      res.status(500).send('Error scheduling appointment');
-      console.error(err);
+    res.status(500).send('Error scheduling appointment');
+    console.error(err);
   }
 });
 
-// Start the server
+// Start the server on the specified port
 app.listen(PORT, () => {
   console.log(`Server running on http://localhost:${PORT}`);
 });
